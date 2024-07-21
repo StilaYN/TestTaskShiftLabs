@@ -4,11 +4,11 @@ import ru.cft.shiftlabtesttask.api.IntervalKind;
 
 import java.util.List;
 
-public abstract class IntervalService<T> {
+public interface IntervalService<T> {
 
-    protected IntervalKind kind = null;
+    public IntervalKind getKind();
 
-    public abstract List<T> getMin();
+    public List<T> getMin();
 
-    public abstract void merge(List<List<Object>> request);
+    public void merge(List<List<Object>> request);
 }
