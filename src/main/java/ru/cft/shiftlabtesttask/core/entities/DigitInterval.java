@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "character_intervals")
+@Table(name = "digit_intervals")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

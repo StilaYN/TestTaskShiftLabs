@@ -1,4 +1,4 @@
-create table if not exists digital_intervals(
+create table if not exists digit_intervals(
     id bigserial not null unique,
     left_border int,
     right_border int,
