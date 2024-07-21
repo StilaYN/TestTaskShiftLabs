@@ -16,7 +16,7 @@ public class DigitIntervalService extends IntervalService<Integer> {
     }
 
     @Override
-    public List<Integer> merge(List<List<Object>> request) {
-        return List.of();
+    public void merge(List<List<Object>> request) {
+
     }
 }

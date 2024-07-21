@@ -14,10 +14,10 @@ public class ExecutorApiService {
     private final IntervalListValidator intervalListValidator;
     private final IntervalServiceProvider intervalServiceProvider;
 
-    public List executePost(List<List<Object>> intervalList, IntervalKind kind) {
+    public void executePost(List<List<Object>> intervalList, IntervalKind kind) {
         intervalListValidator.validate(intervalList);
         IntervalService intervalService = intervalServiceProvider.getIntervalService(kind);
-        return intervalService.merge(intervalList);
+        intervalService.merge(intervalList);
     }
 
     public List executeGet(IntervalKind kind) {

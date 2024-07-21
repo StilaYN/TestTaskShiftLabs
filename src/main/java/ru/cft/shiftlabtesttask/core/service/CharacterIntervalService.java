@@ -16,7 +16,6 @@ public class CharacterIntervalService extends IntervalService<Character> {
     }
 
     @Override
-    public List<Character> merge(List<List<Object>> request) {
-        return List.of();
+    public void merge(List<List<Object>> request) {
     }
 }

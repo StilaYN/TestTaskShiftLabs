@@ -10,5 +10,5 @@ public abstract class IntervalService<T> {
 
     public abstract List<T> getMin();
 
-    public abstract List<T> merge(List<List<Object>> request);
+    public abstract void merge(List<List<Object>> request);
 }

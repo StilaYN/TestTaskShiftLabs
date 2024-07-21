@@ -20,13 +20,13 @@ public class IntervalController {
     private final ExecutorApiService executorApiService;
 
     @PostMapping(value = "/merge")
-    public Object post(
+    public void post(
         @RequestBody
         List<List<Object>> intervalValue,
         @RequestParam(required = true)
         IntervalKind kind
     ) {
-        return executorApiService.executePost(intervalValue, kind);
+        executorApiService.executePost(intervalValue, kind);
     }
 
     @GetMapping("/min")
