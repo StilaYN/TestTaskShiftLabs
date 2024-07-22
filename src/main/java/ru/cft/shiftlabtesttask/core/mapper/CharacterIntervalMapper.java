@@ -17,7 +17,7 @@ public class CharacterIntervalMapper {
     public List<CharInterval> map(List<List<Object>> intervalsList) {
         List<CharInterval> charIntervals = new ArrayList<>();
         for (List<Object> interval : intervalsList) {
-            CharInterval charInterval =CharInterval.builder()
+            CharInterval charInterval = CharInterval.builder()
                 .leftBorder(interval.get(0).toString().charAt(0))
                 .rightBorder(interval.get(1).toString().charAt(0))
                 .build();
@@ -25,4 +25,12 @@ public class CharacterIntervalMapper {
             charIntervals.add(charInterval);
         }
         return charIntervals;
-    }}
+    }
+
+    public List<Character> map(CharInterval charInterval) {
+        List<Character> intervalInList = new ArrayList<>();
+        intervalInList.add(charInterval.getLeftBorder());
+        intervalInList.add(charInterval.getRightBorder());
+        return intervalInList;
+    }
+}
