@@ -20,7 +20,7 @@ public class CharacterIntervalMapper {
         for (List<Object> interval : intervalsList) {
             String left = interval.get(0).toString();
             String right = interval.get(1).toString();
-            if(left.length()!=1||right.length()!=1) {
+            if (left.length() != 1 || right.length() != 1) {
                 throw new IntervalFormatException("левая и правая точка интервала должен состоять только из одного символа");
             }
             CharInterval charInterval = CharInterval.builder()

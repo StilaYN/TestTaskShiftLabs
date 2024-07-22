@@ -21,6 +21,6 @@ public class CharacterIntervalValidator {
     }
 
     private boolean isValidCharacter(Character character) {
-        return character >= 'A' && character <= 'Z' || character >= 'a' && character <= 'z';
+        return (character >= 'A' && character <= 'Z') || (character >= 'a' && character <= 'z');
     }
 }

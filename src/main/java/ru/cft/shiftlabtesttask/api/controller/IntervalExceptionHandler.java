@@ -11,17 +11,17 @@ import ru.cft.shiftlabtesttask.core.exception.IntervalNotFoundException;
 public class IntervalExceptionHandler {
 
     @ExceptionHandler
-    public ResponseEntity<String> handle(IntervalFormatException exception){
+    public ResponseEntity<String> handle(IntervalFormatException exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
     }
 
     @ExceptionHandler
-    public ResponseEntity<String> handle(IntervalNotFoundException exception){
+    public ResponseEntity<String> handle(IntervalNotFoundException exception) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
 
     @ExceptionHandler
-    public ResponseEntity<String> handle(Exception exception){
+    public ResponseEntity<String> handle(Exception exception) {
         return ResponseEntity.status(500).body(exception.getMessage());
     }
 }

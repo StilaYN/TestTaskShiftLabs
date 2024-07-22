@@ -15,10 +15,9 @@ public class IntervalServiceProvider {
     private List<IntervalService> serviceList;
 
     public IntervalService getIntervalService(IntervalKind kind) {
-
         return serviceList
             .stream()
-            .filter(intervalService -> intervalService.getKind()==kind).findAny().orElseThrow();
+            .filter(intervalService -> intervalService.getKind() == kind).findAny().orElseThrow();
     }
 
 }

@@ -34,16 +34,14 @@ public class DigitInterval implements Interval<Integer, DigitInterval> {
 
     @Override
     public int compareTo(DigitInterval o) {
-        if(o==null){
+        if (o == null) {
             throw new NullPointerException("");
         }
-        if(getLeftBorder()<o.getLeftBorder()){
+        if (getLeftBorder() < o.getLeftBorder()) {
             return -1;
-        }
-        else if(getLeftBorder()>getRightBorder()){
+        } else if (getLeftBorder() > o.getRightBorder()) {
             return 1;
-        }
-        else{
+        } else {
             return getRightBorder().compareTo(o.getRightBorder());
         }
     }

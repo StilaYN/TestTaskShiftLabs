@@ -19,18 +19,18 @@ public class IntervalController {
 
     private final ExecutorApiService executorApiService;
 
-    @PostMapping(value = "/merge")
-    public void post(
+    @PostMapping(value = "/merge", consumes = "application/json")
+    public void mergeInterval(
         @RequestBody
         List<List<Object>> intervalValue,
         @RequestParam(required = true)
         IntervalKind kind
     ) {
-        executorApiService.executePost(intervalValue, kind);
+        executorApiService.executeMergeInterval(intervalValue, kind);
     }
 
-    @GetMapping("/min")
-    public Object get(@RequestParam(required = true) IntervalKind kind) {
-        return executorApiService.executeGet(kind);
+    @GetMapping(value = "/min", produces = "application/json")
+    public Object getMinInterval(@RequestParam(required = true) IntervalKind kind) {
+        return executorApiService.executeGetMin(kind);
     }
 }
