@@ -14,5 +14,13 @@ public class CharacterIntervalValidator {
         if (interval.getLeftBorder().equals(interval.getRightBorder())) {
             throw new IntervalFormatException("Слева и справа должны быть разные значения");
         }
+        if (!isValidCharacter(interval.getLeftBorder()) || !isValidCharacter(interval.getRightBorder())) {
+            throw new IntervalFormatException("Могут использоваться только буквы английского алфавита");
+        }
+
+    }
+
+    private boolean isValidCharacter(Character character) {
+        return character >= 'A' && character <= 'Z' || character >= 'a' && character <= 'z';
     }
 }
