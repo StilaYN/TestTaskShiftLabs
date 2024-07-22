@@ -17,7 +17,7 @@ public class DigitIntervalMapper {
     public List<DigitInterval> map(List<List<Object>> intervalsList) {
         List<DigitInterval> digitIntervals = new ArrayList<>();
         for (List<Object> interval : intervalsList) {
-             DigitInterval digitInterval = DigitInterval.builder()
+            DigitInterval digitInterval = DigitInterval.builder()
                 .leftBorder((Integer) interval.get(0))
                 .rightBorder((Integer) interval.get(1))
                 .build();
@@ -25,5 +25,12 @@ public class DigitIntervalMapper {
             digitIntervals.add(digitInterval);
         }
         return digitIntervals;
+    }
+
+    public List<Integer> map(DigitInterval digitInterval) {
+        List<Integer> interval = new ArrayList<>();
+        interval.add(digitInterval.getLeftBorder());
+        interval.add(digitInterval.getRightBorder());
+        return interval;
     }
 }
