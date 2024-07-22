@@ -21,7 +21,6 @@ public class DigitIntervalMapper {
                 .leftBorder((Integer) interval.get(0))
                 .rightBorder((Integer) interval.get(1))
                 .build();
-            digitIntervalValidator.valid(digitInterval);
             digitIntervals.add(digitInterval);
         }
         return digitIntervals;

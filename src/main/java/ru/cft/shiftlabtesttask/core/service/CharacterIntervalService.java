@@ -7,6 +7,7 @@ import ru.cft.shiftlabtesttask.core.entities.CharInterval;
 import ru.cft.shiftlabtesttask.core.exception.IntervalNotFoundException;
 import ru.cft.shiftlabtesttask.core.mapper.CharacterIntervalMapper;
 import ru.cft.shiftlabtesttask.core.repository.CharacterIntervalRepository;
+import ru.cft.shiftlabtesttask.core.validator.CharacterIntervalValidator;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class CharacterIntervalService implements IntervalService<Character> {
 
     private final CombiningIntervalService<CharInterval> combiningIntervalService;
     private final CharacterIntervalMapper characterIntervalMapper;
+    private final CharacterIntervalValidator characterIntervalValidator;
     private final CharacterIntervalRepository characterIntervalRepository;
 
     @Override
@@ -32,6 +34,7 @@ public class CharacterIntervalService implements IntervalService<Character> {
 
     @Override
     public void merge(List<List<Object>> request) {
+        characterIntervalValidator.validate(request);
         List<CharInterval> charIntervalList = characterIntervalMapper.map(request);
         List<CharInterval> charCombinedIntervalList = combiningIntervalService.combine(charIntervalList);
         characterIntervalRepository.saveAll(charCombinedIntervalList);
