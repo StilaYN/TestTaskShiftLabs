@@ -1,22 +1,40 @@
 package ru.cft.shiftlabtesttask.core.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.cft.shiftlabtesttask.api.IntervalKind;
+import ru.cft.shiftlabtesttask.core.entities.DigitInterval;
+import ru.cft.shiftlabtesttask.core.exception.IntervalNotFoundException;
+import ru.cft.shiftlabtesttask.core.mapper.DigitIntervalMapper;
+import ru.cft.shiftlabtesttask.core.repository.DigitIntervalRepository;
 
 import java.util.List;
 
 @Service
-public class DigitIntervalService extends IntervalService<Integer> {
+@RequiredArgsConstructor
+public class DigitIntervalService implements IntervalService<Integer> {
 
-    protected IntervalKind kind = IntervalKind.digits;
+    private final DigitIntervalMapper digitIntervalMapper;
+    private final CombiningIntervalService<DigitInterval> combiningIntervalService;
+    private final DigitIntervalRepository digitIntervalRepository;
+
+    @Override
+    public IntervalKind getKind() {
+        return IntervalKind.digits;
+    }
 
     @Override
     public List<Integer> getMin() {
-        return List.of();
+        DigitInterval result = digitIntervalRepository.findFirstByOrderByLeftBorderAscRightBorder()
+            .orElseThrow(() -> new IntervalNotFoundException("Интервал не был найден"));
+        return digitIntervalMapper.map(result);
+
     }
 
     @Override
     public void merge(List<List<Object>> request) {
-
+        List<DigitInterval> digitIntervalList = digitIntervalMapper.map(request);
+        List<DigitInterval> digitCombinedIntervalList = combiningIntervalService.combine(digitIntervalList);
+        digitIntervalRepository.saveAll(digitCombinedIntervalList);
     }
 }
