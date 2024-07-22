@@ -15,6 +15,7 @@ public class ExecutorApiService {
     private final IntervalServiceProvider intervalServiceProvider;
 
     public void executePost(List<List<Object>> intervalList, IntervalKind kind) {
+        if(intervalList.isEmpty()) return;
         intervalListValidator.validate(intervalList);
         IntervalService intervalService = intervalServiceProvider.getIntervalService(kind);
         intervalService.merge(intervalList);
