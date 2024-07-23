@@ -19,10 +19,10 @@ public class DigitIntervalValidator {
                 left = (Integer) interval.get(0);
                 right = (Integer) interval.get(1);
             } catch (ClassCastException e) {
-                throw new IntervalFormatException("интервал должен содержать только цифры");
+                throw new IntervalFormatException("Интервал должен содержать только цифры");
             }
             if (left.equals(right)) {
-                throw new IntervalFormatException("левая и правая граница должны быть различны");
+                throw new IntervalFormatException("Левая и правая граница должны быть различны");
             } else if (left > right) {
                 throw new IntervalFormatException("Справа должно быть число больше чем слева");
             }

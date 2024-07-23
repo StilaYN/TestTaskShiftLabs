@@ -20,7 +20,7 @@ public class CharacterIntervalValidator {
                 throw new IntervalFormatException("Границы интервала могут состоять только из одной буквы английского алфавита");
             }
             if (left.compareToIgnoreCase(right) == 0) {
-                throw new IntervalFormatException("левая и правая граница должны быть различны");
+                throw new IntervalFormatException("Левая и правая граница должны быть различны");
             } else if (left.compareToIgnoreCase(right) > 0) {
                 throw new IntervalFormatException("Справа должно быть символ больше чем слева");
             }
